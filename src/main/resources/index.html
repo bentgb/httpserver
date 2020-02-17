@@ -1,23 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lan="en">
 
 <head>
+
+    <meta charset="UTF-8">
     <title>HTTP Server Connected</title>
 </head>
 
-<body>
-<h1>Creating a HttpServer by Tugba & Husamettin Arslan</h1>
+<body BGCOLOR="FFFFFF">
+<link href="sample.css" rel="stylesheet" type="text/css" >
+<h1>Creating a HttpServer by Tugba & Husamettin </h1>
 
 <p><img src="https://media2.giphy.com/media/qMLQ2EOUzMT84/giphy.gif?cid=790b761141dd93b63de05f4df0484c6e83f627096f7cb3ed&rid=giphy.gif" alt="A Great HTML Resource"></p>
-<p> What is this? This is a http server that <b>CAN</b> </p>
+<p> This is a http server that <b>CAN</b> </p>
 <ul>
+
     <li>handle simple GET HEAD and POST requests including parameters.</li>
-    <li>serve static files of <a href="myGet?json">json</a>, <a href="myGet?pdf">pdf</a>, <a href="myGet?png">png</a> and one or more image formats <i>with the correct content type</i> in the answer. </li>
+    <li>serve static files of <a href="Get?json">json</a>, <a href="Get?pdf">pdf</a>, <a href="Get?png">png</a> , <a href="Get?css">css</a>, <a href="Get?jpeg">jpeg</a> and one or more image formats <i>with the correct content type</i> in the answer. </li>
     <li>there are url that allows us to submit information to the web server via parameters.</li>
-    <li>  <a href="404.html">404 page returns</a> if an address that is requested does not exist</li>
+    <li>  <a href="Get?404.html">File not found</a> returns if the requested address does not exist</li>
+
+    <h2>This is to test Post Method</h2>
+    <form action="/Post" method="post">
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" name="firstName"><br><br>
+        <label for="lastName">Last name:</label>
+        <input type="text" id="lastName" name="lastName"><br><br>
+        <input type="submit" value="Submit">
+    </form>
 
 </ul>
 
 <hr>
-<p>The Happy End</p>
+<p>The End</p>
 </body>
 </html>

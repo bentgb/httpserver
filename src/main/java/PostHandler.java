@@ -19,18 +19,19 @@ public class PostHandler implements HttpHandler {
 
 
               // send response
-        String response = "";
-                for (String key : parameters.keySet())
-            //response += key + " = " + parameters.get(key) + "\n";
-
+        String response = "{";
+        int a = 0;
+        for (String key : parameters.keySet()){
+            a++;
+            response +=  key + " : \"" + parameters.get(key);
+            if (a==parameters.size())
+                response += "\"";
+            else  response += "\",\n";}
+        response +="}";
         he.sendResponseHeaders(200, response.length());
-                OutputStream os = he.getResponseBody();
+        OutputStream os = he.getResponseBody();
         os.write(response.toString().getBytes());
         os.close();
-
-
-
-
 
     }
 }

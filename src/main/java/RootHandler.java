@@ -7,14 +7,13 @@ import java.io.OutputStream;
 
 public class RootHandler implements HttpHandler {
 
-    static final File webRoot = new File("C:\\Users\\tugba\\labb1son\\src\\main\\resources");
+    static final File webRoot = new File("C:\\Users\\husam\\Desktop\\labb1\\src\\main\\resources");
     static final String defaultFile = "index.html";
 
 
 
     @Override
     public void handle (HttpExchange he) throws IOException {
-
 
         String response = "<h1>Connected</h1>" ;
         File file = new File(webRoot, defaultFile);

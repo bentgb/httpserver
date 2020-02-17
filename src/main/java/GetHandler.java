@@ -8,11 +8,13 @@ import java.util.*;
 
 public class GetHandler implements HttpHandler {
 
-    static final File webRoot = new File("C:\\Users\\tugba\\labb1son\\src\\main\\resources\\");
+    static final File webRoot = new File("C:\\Users\\husam\\Desktop\\labb1\\src\\main\\resources");
     static final String samplePdf = "sample.pdf";
     static final String samplePng = "sample.png";
+    static final String sampleJpeg= "sample.jpeg";
     static final String sampleJson = "sample.json";
-
+    static final String sampleCss ="sample.css";
+    static final String FILE_NOT_FOUND = "404.html";
     @Override
     public void handle(HttpExchange he) throws IOException {
 
@@ -31,19 +33,33 @@ public class GetHandler implements HttpHandler {
 
           requestedType=key ;
 
-
-      if(requestedType.equals("pdf"))
-          filePath = samplePdf;
-        if(requestedType.equals("png"))
+        String type=requestedType.toString();
+        switch (type){
+            case "pdf":
+            filePath = samplePdf;
+            break;
+            case "png":
             filePath = samplePng;
-        if(requestedType.equals("json"))
+                break;
+            case "json":
             filePath = sampleJson;
+            break;
+            case "css":
+            filePath=sampleCss;
+                break;
+            case "jpeg":
+            filePath=sampleJpeg;
+                break;
+            default:
+                filePath=FILE_NOT_FOUND;
+        }
         File file = new File(webRoot, filePath);
         int fileLength = (int) file.length();
         String content = getContentType(filePath);
         byte[] fileData = readFileData(file, fileLength);
         he.sendResponseHeaders(200, file.length());
          OutputStream os = he.getResponseBody();
+
         //os.write(response.toString().getBytes());
         //dataOut = new BufferedOutputStream(os);
 //        PrintWriter out = new PrintWriter(os2);
